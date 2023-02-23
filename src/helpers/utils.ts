@@ -11,3 +11,15 @@ export const getNumberOfConsonants = (input: string): number => {
 export const removeSpaces = (phrase :string): string => {
   return phrase.replace(/\s/g, '');
 }
+export const hasCommonFactors = (x: number, y: number): boolean => {
+  //calculate the  maximum common divisor
+  if (typeof x !== "number" || typeof y !== "number") return false;
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while (y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x === 1;
+};
