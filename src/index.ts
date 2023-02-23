@@ -1,5 +1,6 @@
 import { getDataFile } from "./helpers/file";
 import { Driver } from "./types";
+import { getNumberOfVowels, getNumberOfConsonants, removeSpaces } from "./helpers/utils";
 
 if (require.main === module) {
   //exit process if file paths are missing
@@ -34,5 +35,17 @@ if (require.main === module) {
     console.error("drivers and addresses list must be the same size");
     process.exit(1);
   }
+
+  //driver object with consonants and vowels and length properties
+  const driverObjs = drivers.map(
+    (d): Driver => ({
+      name: d,
+      consonants: getNumberOfConsonants(d),
+      vowels: getNumberOfVowels(d),
+      length: removeSpaces(d).length
+    })
+  );
+
+  console.log('driverObjs', driverObjs);
 
 }
