@@ -4,3 +4,5 @@ export type Driver = {
   consonants: number;
   length: number;
 };
+
+export type DriverScore = [Driver, number];
