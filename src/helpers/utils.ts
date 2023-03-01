@@ -8,10 +8,11 @@ export const getNumberOfConsonants = (input: string): number => {
   return consonantsNumber?.length ? consonantsNumber.length : 0;
 };
 
-export const removeSpaces = (phrase :string): string => {
-  return phrase.replace(/\s/g, '');
-}
-export const hasCommonFactors = (x: number, y: number): boolean => {
+export const removeSpaces = (phrase: string): string => {
+  return phrase.replace(/\s/g, "");
+};
+
+export const getCommonFactors = (x: number, y: number): boolean => {
   //calculate the  maximum common divisor
   if (typeof x !== "number" || typeof y !== "number") return false;
   x = Math.abs(x);
