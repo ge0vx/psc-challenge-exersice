@@ -81,7 +81,6 @@ export const matchDestinationsToDrivers = (
         break;
       }
     }
-
-    return driverAssignments;
   }
+  return driverAssignments;
 };
