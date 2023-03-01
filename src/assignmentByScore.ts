@@ -54,3 +54,34 @@ export const getDriverScoresByDestination = (
 
   return allSuitabilityScore;
 };
+
+//create an array with the highest driver score 
+//and replace it if score of another driver is higher for the same destination
+export const matchDestinationsToDrivers = (
+  scores: Record<string, DriverScore[]>
+): Record<string, [string, number]> | undefined => {
+  const destinations = Object.keys(scores);
+  const driverAssignments: Record<string, [string, number]> = {};
+
+  for (const destination of destinations) {
+    for (let i = 0; i < scores[destination].length; i++) {
+      const driverName: string = scores[destination][i][0].name;
+      const driverScore = scores[destination][i][1];
+
+      if (driverName in driverAssignments) {
+        const existingScore = driverAssignments[driverName][1];
+
+        if (driverScore > existingScore) {
+          destinations.push(driverAssignments[driverName][0]);
+          driverAssignments[driverName] = [destination, driverScore];
+          break;
+        }
+      } else {
+        driverAssignments[driverName] = [destination, driverScore];
+        break;
+      }
+    }
+
+    return driverAssignments;
+  }
+};
