@@ -89,8 +89,11 @@ export const matchDestinationsToDrivers = (
 export const matchReport = (matches: Record<string, [string, number]>): any => {
   const records = Object.keys(matches);
   const report: Record<string, string> = {};
+  let ss: number = 0;
   for (const record of records) {
     report[record] = matches[record][0];
+    ss = ss + matches[record][1];
   }
+  report["total ss"] = `${ss}`;
   return report;
 };
