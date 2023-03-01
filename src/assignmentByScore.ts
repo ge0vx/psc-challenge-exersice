@@ -55,7 +55,7 @@ export const getDriverScoresByDestination = (
   return allSuitabilityScore;
 };
 
-//create an array with the highest driver score 
+//create an array with the highest driver score
 //and replace it if score of another driver is higher for the same destination
 export const matchDestinationsToDrivers = (
   scores: Record<string, DriverScore[]>
@@ -86,11 +86,11 @@ export const matchDestinationsToDrivers = (
   return driverAssignments;
 };
 
-export const matchReport = (matches: Record<string, [string, number]>) : any =>{
+export const matchReport = (matches: Record<string, [string, number]>): any => {
   const records = Object.keys(matches);
   const report: Record<string, string> = {};
-  for(const record of records){
+  for (const record of records) {
     report[record] = matches[record][0];
   }
   return report;
-}
+};
