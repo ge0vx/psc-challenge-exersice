@@ -82,5 +82,15 @@ export const matchDestinationsToDrivers = (
       }
     }
   }
+
   return driverAssignments;
 };
+
+export const matchReport = (matches: Record<string, [string, number]>) : any =>{
+  const records = Object.keys(matches);
+  const report: Record<string, string> = {};
+  for(const record of records){
+    report[record] = matches[record][0];
+  }
+  return report;
+}

@@ -1,7 +1,7 @@
 import { getDataFile } from "./helpers/file";
 import { Driver } from "./types";
 import { getNumberOfVowels, getNumberOfConsonants, removeSpaces } from "./helpers/utils";
-import { getDriverScoresByDestination } from "./assignmentByScore";
+import { getDriverScoresByDestination, matchDestinationsToDrivers, matchReport } from "./assignmentByScore";
 
 if (require.main === module) {
   //exit process if file paths are missing
@@ -48,5 +48,11 @@ if (require.main === module) {
   );
 
   const destinationDriversScore = getDriverScoresByDestination(destinations, driverObjs);
+  const detinationMatches = matchDestinationsToDrivers(destinationDriversScore);
+
+  if(detinationMatches){
+    const matches = matchReport(detinationMatches);
+    console.log(matches);
+  }
 
 }
