@@ -15,7 +15,7 @@ In the main `package.json` you'll have access to the following scripts:
 After downloading the project, if you have node v18 or above installed, run the following scripts in the console:
 
 - `npm run install`
-- `npm run start`
+- `npm run start data/10-list-addresses.txt data/10-list-drivers.txt`
 
 ## Assumptions
 
